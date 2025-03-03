@@ -36,10 +36,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Service
 public class AuthenticateUserService extends OncePerRequestFilter implements UserDetailsService {
-    @Value("${app.jwt.secret}")
+    @Value("secret")
     public String jwtSecret;
 
-    @Value("${app.gmt.offset}")
+    @Value("-03:00")
     public String gmtOffset;
 
     @Autowired

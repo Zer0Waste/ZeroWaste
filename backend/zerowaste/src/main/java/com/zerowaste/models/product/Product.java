@@ -49,7 +49,7 @@ public class Product {
     @Column(name = "brand", length = 100)
     private String brand;
 
-    @Column(name = "category", length = 5)
+    @Column(name = "category", length = 8)
     @Enumerated(EnumType.STRING)
     private ProductCategory category;
 
