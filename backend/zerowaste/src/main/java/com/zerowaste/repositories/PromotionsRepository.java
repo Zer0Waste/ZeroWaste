@@ -14,4 +14,6 @@ public interface PromotionsRepository extends JpaRepository<Promotion, Long> {
     @NativeQuery("SELECT * FROM promotions WHERE deleted_at IS NULL")
     List<Promotion> findAllNotDeleted();
     Optional<Promotion> findById(Long id);
+    List<Promotion> findByPercentage(Long percentage);
+    Optional<Promotion> findByProducts_Id(Long productsIds);
 }
