@@ -1,0 +1,13 @@
+<dialog #modal class="modal">
+  <header class="modal-header">
+    <ng-content select="[div, header, modal-header]"></ng-content>
+  </header>
+
+  <main class="modal-content">
+    <ng-content select="[div, main, section, modal-content]"></ng-content>
+  </main>
+
+  <footer class="modal-footer">
+    <ng-content select="[div, footer, modal-footer]"></ng-content>
+  </footer>
+</dialog>

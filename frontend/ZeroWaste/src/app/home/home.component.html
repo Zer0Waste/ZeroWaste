@@ -1,0 +1,27 @@
+
+<h1>Home Page</h1>
+<app-logout></app-logout>
+
+<app-button (click)="modal.openModal()">
+  Open Modal
+</app-button>
+<app-modal #modal>
+  <header modal-header>
+    <h2 modal-header>
+      Are you sure absolutely sure?
+    </h2>
+  </header>
+
+  <main modal-content>
+    This action cannot be undone. This will permanently delete your account and remove your data from our servers.
+  </main>
+
+  <footer modal-footer>
+    <app-button [variant]="'outline'" style="margin-right: 8px;" (click)="modal.closeModal()">
+      Cancel
+    </app-button>
+    <app-button (click)="modal.closeModal()">
+      Continue
+    </app-button>
+  </footer>
+</app-modal>
