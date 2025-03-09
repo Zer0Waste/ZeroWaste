@@ -1,0 +1,49 @@
+<section class="container">
+    <header>
+      <h1>Produtos</h1>
+    </header>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Marca</th>
+                    <th>Preço Unit.</th>
+                    <th>Validade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{product.name}}</td>
+                    <td>{{product.brand}}</td>
+                    <td>R${{product.unitPrice | number : '1.2-2'}}</td>
+                    <td>{{product.expiresAt | date: 'dd/MM/yyyy'}}</td>
+                    <td>
+                        <a [routerLink]="['/products', product.id]" title="Detalhar produto">
+                            <app-button [type]="'button'" [variant]="'outline'">
+                                <img src="info.png" alt="detail product">
+                            </app-button>
+                        </a>
+                        <!--Modificar rotas-->
+                        <a [routerLink]="['/products/update', product.id]" title="Editar produto">
+                            <app-button [type]="'button'" [variant]="'outline'">
+                                <img src="editar.png" alt="edit product"> 
+                            </app-button>
+                        </a>
+                        <a routerLink="/products/" title="Deletar produto">
+                            <app-button [type]="'button'" [variant]="'outline'">
+                                <img src="deletar.png" alt="delete product">
+                            </app-button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a routerLink="/products/create">
+        <app-button [type]="'button'" [block]="true">
+            Criar produto
+        </app-button>
+    </a>
+</section>

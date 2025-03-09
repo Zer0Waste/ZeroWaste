@@ -54,7 +54,7 @@ export class CreateProductFormPageComponent {
     try {
       await this.saveProduct(this.productForm.value)
       alert('Produto salvo com sucesso');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/products']);
     } catch (error) {
       console.error('Erro ao salvar produto', error);
       alert('Erro ao salvar produto');

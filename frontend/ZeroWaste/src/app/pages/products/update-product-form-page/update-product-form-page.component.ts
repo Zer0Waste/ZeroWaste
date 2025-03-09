@@ -73,7 +73,7 @@ export class UpdateProductFormPageComponent implements OnInit {
 
       alert('Produto atualizado com sucesso');
 
-      this.router.navigate(['/home']);
+      this.router.navigate(['/products']);
     } catch (error) {
       console.error('Erro ao atualizar produto', error);
       alert('Erro ao atualizar produto');
