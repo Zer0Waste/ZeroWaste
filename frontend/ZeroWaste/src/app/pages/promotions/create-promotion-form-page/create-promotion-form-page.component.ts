@@ -33,7 +33,6 @@ export class CreatePromotionFormPageComponent {
 
   public promotionForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-    description: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
     percentage: ['', [Validators.required, Validators.min(1), Validators.max(100)]],
     startsAt: ['', [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]],
     endsAt: ['', [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]],

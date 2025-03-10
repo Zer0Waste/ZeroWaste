@@ -51,6 +51,7 @@ public class SpringSecurityConfiguration {
             .requestMatchers(HttpMethod.GET, "/promotions/", "/promotions/**").hasRole("ADMIN")
             .requestMatchers(HttpMethod.GET, "/promotions/percentageFilter/**").hasAnyRole("USER", "ADMIN")
             .requestMatchers(HttpMethod.GET, "/promotions/productFilter/**").hasAnyRole("USER", "ADMIN")
+            .requestMatchers(HttpMethod.PUT, "/promotions/**").hasRole("ADMIN")
         )
         .addFilterBefore(authenticationUserService, UsernamePasswordAuthenticationFilter.class)
         .build();

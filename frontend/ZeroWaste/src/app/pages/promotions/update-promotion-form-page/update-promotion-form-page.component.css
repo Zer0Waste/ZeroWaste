@@ -1,0 +1,39 @@
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-container input {
+  width: 100%;
+  padding-right: 2rem;
+}
+
+.input-icon {
+  position: absolute;
+  right: 0.5rem;
+  color: #555;
+  pointer-events: none;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container form footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

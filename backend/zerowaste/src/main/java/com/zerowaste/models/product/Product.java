@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zerowaste.models.promotion.Promotion;
 
 import jakarta.persistence.Column;
@@ -22,10 +23,12 @@ import jakarta.persistence.Table;
 @Table(name = "products")
 @Entity(name = "products")
 public class Product {
-    public Product() {}
+    public Product() {
+    }
 
     public Product(Long id, String name, String description, String brand, ProductCategory category, Double unitPrice,
-        Double promotionPrice, Integer stock, LocalDate expiresAt, LocalDate createdAt, LocalDate updatedAt, LocalDate deletedAt) {
+            Double promotionPrice, Integer stock, LocalDate expiresAt, LocalDate createdAt, LocalDate updatedAt,
+            LocalDate deletedAt) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -44,10 +47,10 @@ public class Product {
     @SequenceGenerator(name = "product_id_seq", sequenceName = "product_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_seq")
     private Long id;
-    
+
     @Column(name = "name", length = 100)
     private String name;
-    
+
     @Column(name = "description", length = 255)
     private String description;
 
@@ -80,6 +83,7 @@ public class Product {
     private LocalDate deletedAt;
 
     @ManyToMany(mappedBy = "products")
+    @JsonIgnore
     private Set<Promotion> promotions;
 
     @PrePersist
@@ -222,5 +226,5 @@ public class Product {
         } else if (!id.equals(other.id))
             return false;
         return true;
-    }   
+    }
 }

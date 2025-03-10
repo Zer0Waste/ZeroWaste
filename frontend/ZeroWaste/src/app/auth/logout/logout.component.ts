@@ -3,15 +3,17 @@ import { AuthService } from '../auth.service';
 import { inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ButtonComponent } from '../../components/form/button/button.component';
 
 @Component({
   selector: 'app-logout',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   template: `
-    <button class="logout-button" (click)="logout()" *ngIf="isAuthenticated()">
-      Logout
-  </button>
+
+  <app-button [type]="'button'" (click)="logout()" variant="destructive" *ngIf="isAuthenticated()">
+  Logout
+  </app-button>
   `,
   styleUrl: './logout.component.css'
 })
