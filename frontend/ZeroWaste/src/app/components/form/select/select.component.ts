@@ -5,7 +5,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   selector: 'app-select',
   imports: [],
   template: `
-    <select [name]="name" [id]="id" [value]="value" [disabled]="disabled">
+    <select [name]="name" [id]="id" [value]="value" [disabled]="disabled" [multiple]= "multiple" >
       @if (placeholder) {
         <option disabled selected>{{ placeholder }}</option>
       }
@@ -33,6 +33,7 @@ export class SelectComponent implements ControlValueAccessor {
   @Input() value: HTMLSelectElement['value'] = '';
   @Input() placeholder: string = '';
   @Input() disabled: HTMLSelectElement['disabled'] = false;
+  @Input() multiple: boolean = false;
 
   onChange: any = () => {};
   onTouch: any = () => {};

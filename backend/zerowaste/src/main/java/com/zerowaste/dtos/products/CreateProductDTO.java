@@ -1,6 +1,7 @@
 package com.zerowaste.dtos.products;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import com.zerowaste.models.product.ProductCategory;
 import com.zerowaste.utils.validation.ValidEnum.ValidEnum;
@@ -39,5 +40,7 @@ public record CreateProductDTO(
 
     @NotNull(message = "O campo \"expiresAt\" é obrigatório")
     @Future(message = "O campo \"expiresAt\" deve ser uma data futura")
-    LocalDate expiresAt
+    LocalDate expiresAt,
+
+    Set<Long> promotionsIds
 ) {}

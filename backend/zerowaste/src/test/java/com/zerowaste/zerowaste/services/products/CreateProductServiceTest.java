@@ -47,7 +47,8 @@ public class CreateProductServiceTest {
             ProductCategory.BAKERY.getCategory(),
             10.0,
             10,
-            LocalDate.now().plusDays(1)
+            LocalDate.now().plusDays(1), 
+            null
         );
 
         var product = new Product();

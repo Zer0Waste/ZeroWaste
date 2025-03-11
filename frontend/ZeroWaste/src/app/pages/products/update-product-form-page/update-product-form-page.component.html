@@ -30,7 +30,7 @@
         {{errorMessage}}
       </small>
     </div>
-
+    
     <div class="form-group">
       <label for="brand">Marca</label>
       <app-input
@@ -59,6 +59,7 @@
           {{errorMessage}}
         </small>
       </div>
+
       <div class="form-group">
         <label for="category">Categoria</label>
         <app-select [id]="'category'" [name]="'category'" [placeholder]="'Selecione uma categoria'" formControlName="category">
@@ -103,6 +104,21 @@
           {{errorMessage}}
         </small>
       </div>
+    </div>
+
+    <div class="form-group">
+      <label for="promotions">Promoções</label>
+      <app-select
+        [id]="'promotions'"
+        [name]="'promotions'"
+        [placeholder]="'Selecione promoções (opcional)'"
+        formControlName="promotions"
+        [multiple]="true">
+        <option *ngFor="let promo of promotionsList" [value]="promo.id">{{ promo.name }}</option>
+      </app-select>
+      <small *ngIf="productForm.get('promotions')?.touched && getErrorMessage('promotions') as errorMessage" class="invalid-feedback">
+        {{ errorMessage }}
+      </small>
     </div>
 
     <footer style="display: flex;">
