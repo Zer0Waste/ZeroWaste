@@ -41,10 +41,15 @@
 
     <!-- Produtos -->
     <div class="form-group">
-      <label for="products">Produtos neste promoção</label>
+      <label for="products">Produtos em promoção</label>
       <select name="products" id="products">
-        @for (product of products; track product.id) {
-        <option value="{{product.id}}">{{product.id}}: {{product.name}}</option>
+        @if (!products.length){
+          <option value="none">Nenhum produto vinculado a esta promoção</option>
+        }
+        @else {
+          @for (product of products; track product.id) {
+          <option value="{{product.id}}">{{product.id}}: {{product.name}}</option>
+          }
         }
       </select>
     </div>
